@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salt N Pepper Restaurant & Bar — Upvan Lake, Thane</title>
+<meta name="description" content="Salt N Pepper Restaurant & Bar — casual North Indian, Chinese food and drinks on Upvan Lake Road, Thane West.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌶️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#f4ecd9;
+    --bg:#152420;
+    --bg-2:#0f1b17;
+    --panel:#1c2f29;
+    --amber:#e3a13c;
+    --chili:#c14a2c;
+    --sage:#7f9c85;
+    --line:rgba(244,236,217,0.14);
+    --maxw:1120px;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --ink:#f4ecd9; --bg:#152420; --bg-2:#0f1b17; --panel:#1c2f29;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans', system-ui, sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    line-height:1.08;
+    margin:0;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .eyebrow-none{} /* intentionally no tracked-out eyebrow labels used in this design */
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(15,27,23,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px; max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:baseline; gap:8px;
+    font-family:'Fraunces', serif; font-size:1.35rem; font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .brand span{color:var(--amber);}
+  nav.links{display:flex; gap:30px; font-size:0.95rem;}
+  nav.links a{text-decoration:none; opacity:0.85; transition:opacity .15s;}
+  nav.links a:hover{opacity:1;}
+  .nav-cta{
+    border:1px solid var(--amber); color:var(--amber);
+    padding:9px 18px; border-radius:2px; text-decoration:none;
+    font-size:0.9rem; white-space:nowrap;
+  }
+  .menu-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:76px 0 0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px;
+    align-items:center;
+    max-width:var(--maxw); margin:0 auto; padding:44px 28px 0;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5.4vw, 4.4rem);
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--amber); font-weight:500;
+  }
+  .hero p.lede{
+    margin-top:22px; max-width:46ch;
+    font-size:1.12rem; color:rgba(244,236,217,0.82);
+  }
+  .hero-meta{
+    margin-top:30px; display:flex; gap:28px; flex-wrap:wrap;
+  }
+  .hero-meta div{font-size:0.92rem; color:rgba(244,236,217,0.7);}
+  .hero-meta strong{
+    display:block; font-family:'Fraunces', serif; font-size:1.6rem;
+    color:var(--ink); font-weight:600;
+  }
+  .hero-actions{margin-top:34px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:14px 26px; border-radius:2px;
+    text-decoration:none; font-size:0.95rem; font-weight:500;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--chili); color:var(--ink);}
+  .btn-primary:hover{background:#a83e22;}
+  .btn-ghost{border:1px solid var(--line); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--amber); color:var(--amber);}
+
+  .hero-art{position:relative;}
+  .hero-lights{position:absolute; top:-30px; left:0; right:0; opacity:0.9;}
+
+  /* ---------- WAVE DIVIDER ---------- */
+  .wave{display:block; width:100%; height:auto; margin-top:56px;}
+
+  /* ---------- STRIP ---------- */
+  .strip{
+    background:var(--bg-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  .strip .wrap{
+    display:flex; gap:40px; flex-wrap:wrap; justify-content:space-between;
+    font-size:0.86rem; color:rgba(244,236,217,0.65);
+  }
+  .strip .wrap span{color:var(--amber); margin-right:6px;}
+
+  /* ---------- ABOUT ---------- */
+  section{padding:96px 0;}
+  .about-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start;
+  }
+  .section-tag{
+    font-family:'Fraunces', serif; font-style:italic; color:var(--sage);
+    font-size:1.05rem; margin-bottom:14px; display:block;
+  }
+  .about-grid h2{font-size:clamp(2rem,3.4vw,2.7rem); max-width:12ch;}
+  .about-copy p{color:rgba(244,236,217,0.82); max-width:62ch;}
+  .about-copy p + p{margin-top:16px;}
+  .pillars{
+    margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:22px;
+  }
+  .pillar{border-top:1px solid var(--line); padding-top:14px;}
+  .pillar h3{font-size:1.05rem; font-weight:600; margin-bottom:6px;}
+  .pillar p{margin:0; font-size:0.92rem; color:rgba(244,236,217,0.65);}
+
+  /* ---------- MENU ---------- */
+  .menu-section{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .menu-head{display:flex; justify-content:space-between; align-items:end; gap:24px; flex-wrap:wrap; margin-bottom:44px;}
+  .menu-head h2{font-size:clamp(2rem,3.4vw,2.7rem);}
+  .menu-head p{max-width:40ch; color:rgba(244,236,217,0.7); font-size:0.95rem;}
+  .menu-columns{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  .menu-list h3{
+    font-size:1.1rem; color:var(--amber); font-weight:500;
+    font-style:italic; font-family:'Fraunces', serif;
+    padding-bottom:10px; border-bottom:1px solid var(--line); margin-bottom:16px;
+  }
+  .menu-row{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:13px 0; border-bottom:1px dashed var(--line);
+  }
+  .menu-row:last-child{border-bottom:none;}
+  .menu-row .name{font-size:1rem;}
+  .menu-row .desc{display:block; font-size:0.84rem; color:rgba(244,236,217,0.55); margin-top:3px;}
+  .menu-row .price{white-space:nowrap; color:var(--sage); font-variant-numeric:tabular-nums;}
+  .menu-note{
+    margin-top:36px; font-size:0.85rem; color:rgba(244,236,217,0.55);
+    border-left:2px solid var(--amber); padding-left:14px;
+  }
+
+  /* ---------- GALLERY / AMBIENCE ---------- */
+  .ambience-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:20px;
+  }
+  .amb-card{
+    background:var(--bg-2); border:1px solid var(--line);
+    border-radius:2px; padding:28px; display:flex; flex-direction:column; gap:14px;
+  }
+  .amb-card h3{font-size:1.15rem;}
+  .amb-card p{margin:0; font-size:0.92rem; color:rgba(244,236,217,0.68);}
+  .amb-tall{grid-row:span 2;}
+  .amb-stack{display:flex; flex-direction:column; gap:20px;}
+
+  /* ---------- LOCATION ---------- */
+  .location{background:var(--bg-2); border-top:1px solid var(--line);}
+  .loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .loc-details dt{
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--sage); margin-top:22px;
+  }
+  .loc-details dt:first-child{margin-top:0;}
+  .loc-details dd{margin:6px 0 0; font-size:1.02rem;}
+  .loc-details dd a{color:var(--amber); text-decoration:none;}
+  .loc-details dd a:hover{text-decoration:underline;}
+  .map-frame{
+    border:1px solid var(--line); border-radius:2px; overflow:hidden;
+    aspect-ratio:4/3;
+  }
+  .map-frame iframe{width:100%; height:100%; border:0; filter:grayscale(0.15) contrast(1.05);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:56px 0 40px; border-top:1px solid var(--line);}
+  .foot-grid{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; align-items:center;}
+  .foot-brand{font-family:'Fraunces', serif; font-size:1.2rem;}
+  .foot-links{display:flex; gap:24px; font-size:0.88rem; color:rgba(244,236,217,0.65);}
+  .foot-links a{text-decoration:none;}
+  .foot-links a:hover{color:var(--amber);}
+  .foot-note{margin-top:26px; font-size:0.8rem; color:rgba(244,236,217,0.4);}
+
+  @media (max-width: 860px){
+    nav.links{display:none;}
+    .hero-grid, .about-grid, .menu-columns, .loc-grid{grid-template-columns:1fr;}
+    .ambience-grid{grid-template-columns:1fr;}
+    .amb-tall{grid-row:auto;}
+    .pillars{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav wrap" style="padding-left:0;padding-right:0;">
+    <div class="brand">Salt <span>N</span> Pepper</div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#ambience">Ambience</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="nav-cta" href="tel:+911234567890">Call to Reserve</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <h1>Good food, easy<br>evenings by <em>Upvan Lake</em>.</h1>
+      <p class="lede">Salt N Pepper is Thane West's laid-back address for North Indian and Chinese plates, a full bar, and a table that's never in a hurry to turn over.</p>
+      <div class="hero-meta">
+        <div><strong>4.1 / 5</strong>from 2,000+ diners</div>
+        <div><strong>₹1,500</strong>approx. for two</div>
+        <div><strong>Upvan Lake Rd</strong>Vartak Nagar, Thane West</div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#menu">See the menu</a>
+        <a class="btn btn-ghost" href="#visit">Get directions</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1c2f29"/>
+            <stop offset="100%" stop-color="#152420"/>
+          </linearGradient>
+          <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0f1b17"/>
+            <stop offset="100%" stop-color="#0a1310"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="480" height="240" fill="url(#sky)"/>
+        <circle cx="380" cy="70" r="46" fill="#e3a13c" opacity="0.9"/>
+        <rect x="0" y="240" width="480" height="180" fill="url(#water)"/>
+        <g opacity="0.5" stroke="#7f9c85" stroke-width="2">
+          <line x1="20" y1="270" x2="120" y2="270"/>
+          <line x1="150" y1="300" x2="280" y2="300"/>
+          <line x1="60" y1="330" x2="220" y2="330"/>
+          <line x1="260" y1="360" x2="420" y2="360"/>
+          <line x1="40" y1="390" x2="340" y2="390"/>
+        </g>
+        <!-- tree line -->
+        <g fill="#0a1512">
+          <path d="M0 240 Q20 200 45 240 Q60 205 85 240 Q100 195 130 240 Q150 210 175 240 L175 250 L0 250 Z"/>
+          <path d="M220 240 Q245 190 275 240 Q295 200 330 240 Q350 205 380 240 Q400 215 430 240 Q450 220 480 240 L480 250 L220 250 Z"/>
+        </g>
+        <!-- string lights -->
+        <g stroke="#c14a2c" stroke-width="2" fill="none" opacity="0.8">
+          <path d="M0 60 Q120 110 240 60 T480 60"/>
+        </g>
+        <g fill="#e3a13c">
+          <circle cx="20" cy="66" r="4"/>
+          <circle cx="80" cy="86" r="4"/>
+          <circle cx="140" cy="98" r="4"/>
+          <circle cx="200" cy="90" r="4"/>
+          <circle cx="260" cy="72" r="4"/>
+          <circle cx="320" cy="82" r="4"/>
+          <circle cx="380" cy="95" r="4"/>
+          <circle cx="440" cy="70" r="4"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z" fill="#0f1b17"/>
+  </svg>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div><span>&#127866;</span>Full bar &amp; alcohol served</div>
+    <div><span>&#128663;</span>Parking on site</div>
+    <div><span>&#127961;&#65039;</span>Indoor &amp; open-air seating</div>
+    <div><span>&#128077;</span>Best evenings &amp; weekends</div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <span class="section-tag">The place</span>
+      <h2>Unfussy by design.</h2>
+    </div>
+    <div class="about-copy">
+      <p>Tucked along Upvan Lake Road, Salt N Pepper has built a steady following as a no-drama neighbourhood spot — the kind of place you land at after work, before a wedding function, or whenever a plate of chilli garlic noodles and a cold beer sound right.</p>
+      <p>The kitchen runs on familiar North Indian and Chinese favourites rather than trend-chasing, and the bar keeps pace with a full drinks list. Portions are generous, tables don't feel rushed, and the lake across the road makes for an easy walk before or after dinner.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Kitchen</h3>
+          <p>North Indian curries, tandoor, and Indo-Chinese classics on one menu.</p>
+        </div>
+        <div class="pillar">
+          <h3>Bar</h3>
+          <p>Full bar service — beer, spirits and cocktails alongside the food menu.</p>
+        </div>
+        <div class="pillar">
+          <h3>Setting</h3>
+          <p>Casual tables, relaxed pace, a short stroll from Upvan Lake.</p>
+        </div>
+        <div class="pillar">
+          <h3>Crowd</h3>
+          <p>Regulars, families, and groups settling in for a long, easy dinner.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <h2>From the menu</h2>
+      <p>A cross-section of the house favourites. Full menu and daily specials are available at the table.</p>
+    </div>
+    <div class="menu-columns">
+      <div class="menu-list">
+        <h3>Starters &amp; small plates</h3>
+        <div class="menu-row">
+          <div><span class="name">Chilli Garlic Chicken</span><span class="desc">Wok-tossed, Indo-Chinese heat</span></div>
+          <div class="price">₹320</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">Tandoori Chicken (Half)</span><span class="desc">Char-grilled, house marinade</span></div>
+          <div class="price">₹340</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">Paneer 65</span><span class="desc">Crisp, curry-leaf tempered</span></div>
+          <div class="price">₹280</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">Veg Manchurian</span><span class="desc">Dry-tossed, classic Indo-Chinese</span></div>
+          <div class="price">₹260</div>
+        </div>
+
+        <h3 style="margin-top:38px;">From the bar</h3>
+        <div class="menu-row">
+          <div><span class="name">Draught &amp; Bottled Beer</span></div>
+          <div class="price">₹180+</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">House Cocktails</span></div>
+          <div class="price">₹320+</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">Spirits &amp; Mixers</span></div>
+          <div class="price">₹250+</div>
+        </div>
+      </div>
+
+      <div class="menu-list">
+        <h3>Mains</h3>
+        <div class="menu-row">
+          <div><span class="name">Butter Chicken</span><span class="desc">Tomato-cashew gravy</span></div>
+          <div class="price">₹380</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">Mutton Rogan Josh</span><span class="desc">Slow-cooked, Kashmiri spice</span></div>
+          <div class="price">₹440</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">Dal Makhani</span><span class="desc">Overnight-simmered black lentils</span></div>
+          <div class="price">₹260</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">Chicken Hakka Noodles</span></div>
+          <div class="price">₹280</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">Veg Fried Rice</span></div>
+          <div class="price">₹240</div>
+        </div>
+
+        <h3 style="margin-top:38px;">To finish</h3>
+        <div class="menu-row">
+          <div><span class="name">Gulab Jamun</span></div>
+          <div class="price">₹140</div>
+        </div>
+        <div class="menu-row">
+          <div><span class="name">Hot Chocolate Brownie</span></div>
+          <div class="price">₹200</div>
+        </div>
+      </div>
+    </div>
+    <p class="menu-note">Prices are indicative and meant to give you a feel for the menu — please confirm current prices and availability with the restaurant. Approx. cost for two: ₹1,500.</p>
+  </div>
+</section>
+
+<section id="ambience">
+  <div class="wrap">
+    <span class="section-tag">Ambience</span>
+    <h2 style="font-size:clamp(2rem,3.4vw,2.7rem); margin-bottom:36px; max-width:16ch;">Casual tables, an easy pace.</h2>
+    <div class="ambience-grid">
+      <div class="amb-card amb-tall">
+        <svg viewBox="0 0 400 260" aria-hidden="true">
+          <rect width="400" height="260" fill="#0f1b17"/>
+          <rect x="0" y="170" width="400" height="90" fill="#1c2f29"/>
+          <circle cx="120" cy="150" r="34" fill="#e3a13c" opacity="0.85"/>
+          <circle cx="260" cy="150" r="34" fill="#e3a13c" opacity="0.85"/>
+          <rect x="90" y="184" width="60" height="10" rx="2" fill="#0a1310"/>
+          <rect x="230" y="184" width="60" height="10" rx="2" fill="#0a1310"/>
+          <g stroke="#7f9c85" stroke-width="2" opacity="0.6">
+            <line x1="0" y1="60" x2="400" y2="60"/>
+            <line x1="0" y1="90" x2="400" y2="90"/>
+          </g>
+        </svg>
+        <h3>Table for a long dinner</h3>
+        <p>Indoor seating alongside open-air tables — pick your pace, no one's rushing the bill.</p>
+      </div>
+      <div class="amb-stack">
+        <div class="amb-card">
+          <h3>Evenings by the lake</h3>
+          <p>Five minutes from Upvan Lake — an easy pre- or post-dinner walk.</p>
+        </div>
+        <div class="amb-card">
+          <h3>Groups &amp; families welcome</h3>
+          <p>Regularly used for casual get-togethers, birthdays and post-work drinks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="visit">
+  <div class="wrap">
+    <div class="loc-grid">
+      <div>
+        <span class="section-tag">Visit</span>
+        <h2 style="font-size:clamp(2rem,3.4vw,2.7rem); margin-bottom:26px;">Find us on<br>Upvan Lake Road.</h2>
+        <dl class="loc-details">
+          <dt>Address</dt>
+          <dd>Upvan Lake Road, Vartak Nagar,<br>Thane West, Thane, Maharashtra</dd>
+          <dt>Hours</dt>
+          <dd>Open daily for lunch &amp; dinner<br><span style="opacity:0.6; font-size:0.88rem;">(please call ahead to confirm today's timing)</span></dd>
+          <dt>Reservations</dt>
+          <dd><a href="tel:+911234567890">+91 12345 67890</a><span style="opacity:0.5; font-size:0.85rem;"> — sample number, update with the restaurant's line</span></dd>
+          <dt>Good to know</dt>
+          <dd>Alcohol served · On-site parking · UPI &amp; card accepted</dd>
+        </dl>
+      </div>
+      <div class="map-frame">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Salt%20N%20Pepper%20Restaurant%20%26%20Bar%2C%20Upvan%20Lake%20Road%2C%20Thane%20West&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          title="Map to Salt N Pepper Restaurant & Bar">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">Salt N Pepper <span style="color:var(--amber);">Restaurant &amp; Bar</span></div>
+    <div class="foot-links">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+      <a href="tel:+911234567890">Call</a>
+    </div>
+  </div>
+  <div class="wrap foot-note">Upvan Lake Road, Vartak Nagar, Thane West, Thane, Maharashtra · Unofficial fan-made page — menu items and prices are illustrative.</div>
+</footer>
+
+</body>
+</html>
